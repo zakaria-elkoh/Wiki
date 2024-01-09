@@ -61,4 +61,12 @@ class UserModel
 
         return $result;
     }
+
+    public function deleteCategory($user_target_id) {
+        $sql = "DELETE FROM `user` WHERE id = $user_target_id";
+        $stmt = $this->conn->prepare($sql);
+        $success = $stmt->execute();
+
+        return $success;
+    }
 }

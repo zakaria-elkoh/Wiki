@@ -61,7 +61,7 @@
                                         <?= ($user['role_id'] == 1) ? 'Admin' : 'User' ; ?>
                                 </td>
                                 <td class="py-4">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                    <a href="?id=<?= $user['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -75,7 +75,7 @@
 
     </div>
 
-
+                            <script></script>
 
 </body>
 </html>

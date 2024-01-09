@@ -19,6 +19,7 @@ $router->setRoutes([
         'admin/users' => ['DashboardController', 'showUsers'],
         'admin/wikis' => ['DashboardController', 'showWikis'],
         'admin/categories' => ['DashboardController', 'showCategories'],
+        'admin/tags' => ['DashboardController', 'showTags'],
     ],
     
     'POST' => [
@@ -26,7 +27,7 @@ $router->setRoutes([
         'signin' => ['UserController', 'signin'],
         'create' => ['WikiController', 'createWiki'],
         'admin/categories' => ['DashboardController', 'showCategories'],
-        // 'dashboard' => ['DashboardController', 'index'],
+        'admin/tags' => ['DashboardController', 'showTags'],
     ]
 
 ]);

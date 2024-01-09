@@ -4,6 +4,7 @@
     use App\Models\UserModel;
     use App\Models\WikiModel;
     use App\Models\CategoryModel;
+    use App\Models\TagModel;
 
     if($_SESSION['user_role_id'] !== 1) {
         echo "<pre>";
@@ -11,6 +12,11 @@
         echo "</pre>";
         die;
     }
+
+    // echo "<pre>";
+    // var_dump($_SERVER);
+    // echo "</pre>";
+    // die;
 
     class DashboardController 
     {
@@ -22,7 +28,14 @@
         }
         
         public function showUsers() {
+
             $userModel = new UserModel();
+                        
+            if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+                $user_target_id = $_GET['id'];
+                $success = $userModel->deleteCategory($user_target_id);
+            }
+
             $users = $userModel->findAllUsers();
             
             require_once '../../Includes/head.php';
@@ -38,23 +51,44 @@
         }
         
         public function showCategories() {
+
             $categoryModel = new CategoryModel();
-            $categories = $categoryModel->findAllCategories();
             
             if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['add'])) {
-
-                $categoryModel = new CategoryModel();
-                $categories = $categoryModel->findAllCategories();
-                
-                echo "<pre>";
-                var_dump($_POST);
-                echo "</pre>";
-                die;
+                $new_category = $_POST['new_category'];
+                $success = $categoryModel->addCategory($new_category);
             }
+            
+            if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+                $category_target_id = $_GET['id'];
+                $success = $categoryModel->deleteCategory($category_target_id);
+            }
+
+            $categories = $categoryModel->findAllCategories();
 
             
             require_once '../../Includes/head.php';
             require_once '../../views/Admin/categories.php';
+        }
+        
+        public function showTags() {
+
+            $tagModel = new TagModel();
+            
+            if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['add'])) {
+                $new_tag = $_POST['new_tag'];
+                $success = $tagModel->addTag($new_tag);
+            }
+            
+            if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
+                $tag_target_id = $_GET['id'];
+                $success = $tagModel->deleteTag($tag_target_id);
+            }
+
+            $tags = $tagModel->findAllTags();
+            
+            require_once '../../Includes/head.php';
+            require_once '../../views/Admin/tags.php';
         }
 
     }

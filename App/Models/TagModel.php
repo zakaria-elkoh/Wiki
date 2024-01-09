@@ -3,7 +3,7 @@
     use App\Config\DbConfig;
     use PDO;
 
-    class CategoryModel
+    class TagModel
     {
         private $conn;
 
@@ -12,8 +12,8 @@
             $this->conn = $dbConfig->getConnection();
         }
 
-        public function findAllCategories() {
-            $sql = "SELECT * FROM categorie";
+        public function findAllTags() {
+            $sql = "SELECT * FROM tag";
             $stmt = $this->conn->prepare($sql);
             $success = $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,16 +21,16 @@
             return $result;
         }
 
-        public function addCategory($new_category) {
-            $sql = "INSERT INTO `categorie`(`name`) VALUES (?)";
+        public function addTag($new_tag) {
+            $sql = "INSERT INTO `tag`(`name`) VALUES (?)";
             $stmt = $this->conn->prepare($sql);
-            $success = $stmt->execute([$new_category]);
+            $success = $stmt->execute([$new_tag]);
 
             return $success;
         }
 
-        public function deleteCategory($category_target_id) {
-            $sql = "DELETE FROM `categorie` WHERE id = $category_target_id";
+        public function deleteTag($tag_target_id) {
+            $sql = "DELETE FROM `tag` WHERE id = $tag_target_id";
             $stmt = $this->conn->prepare($sql);
             $success = $stmt->execute();
 
