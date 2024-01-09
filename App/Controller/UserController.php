@@ -1,8 +1,7 @@
 <?php
 
     namespace App\Controller;
-    use App\Models\User;
-    session_start();
+    use App\Models\UserModel;
 
     class UserController 
     {
@@ -24,14 +23,14 @@
                 if($confirm_password != $password) {
                     $pass_error = "The password do not matches";
                 } else {
-                    $user = new User();
+                    $user = new UserModel();
                     $isUserExist = $user->isUserExist($user_name);
                     
                     if($isUserExist) {
                         $user_name_error = "User name is already existed!";
                     } else {
                         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                        $user = new User();
+                        $user = new UserModel();
                         $user->signUp($first_name, $last_name, $user_name, $email, $hashed_password);
 
                         header('Location: signin');
@@ -54,7 +53,7 @@
                 $user_name = $_POST['user_name'];
                 $password = $_POST['password'];
 
-                $user = new User();
+                $user = new UserModel();
                 $result = $user->signIn($user_name, $password);
 
                 if(!$result) {

@@ -28,7 +28,6 @@
         {
             try {
                 $this->db = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->password);
-                echo "connected!";
                 return $this->db;
             } catch(PDOException $e){
                 echo $e->getMessage();

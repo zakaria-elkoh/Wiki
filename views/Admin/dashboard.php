@@ -30,7 +30,19 @@
                     <span>Wiki</span>
                     <a href="#" class="block text-right mt-6 hover:underline">See All ...</a>
                 </div>
+            </div>
+            <div class="grid grid-cols-2 mt-5 gap-5">
+                <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">1821</h1>
+                    <span>Tags</span>
+                    <a href="#" class="block text-right mt-6 hover:underline">See All Tags</a>
+                </div>
 
+                <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">1821</h1>
+                    <span>Categories</span>
+                    <a href="#" class="block text-right mt-6 hover:underline">See All Categories</a>
+                </div>
             </div>
 
         </div>

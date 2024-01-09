@@ -30,6 +30,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Email
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                Role
+                            </th>
                             <th scope="col" class="py-3">
                                 Action
                             </th>
@@ -53,6 +56,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <?= $user['email'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                        <?= ($user['role_id'] == 1) ? 'Admin' : 'User' ; ?>
                                 </td>
                                 <td class="py-4">
                                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>

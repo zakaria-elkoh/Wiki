@@ -19,11 +19,19 @@ CREATE TABLE wiki (
     title VARCHAR(255),
     image VARCHAR(255),
     description VARCHAR(255),
-    content STRING,
+    content TEXT,
     read_time VARCHAR(50),
     categorie_id INT,
-    FOREIGN KEY (categorie_id) REFERENCES categorie(id)
+    FOREIGN KEY (categorie_id) REFERENCES categorie(id) 
 );
+ALTER TABLE wiki
+ADD COLUMN user_id INT;
+
+ALTER TABLE wiki
+ADD CONSTRAINT fk_wiki_user
+FOREIGN KEY (user_id) REFERENCES user(id);
+ALTER TABLE wiki
+ADD COLUMN created_at DATE;
 CREATE TABLE Categorie (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100)

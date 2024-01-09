@@ -13,14 +13,19 @@ $router->setRoutes([
         'signup' => ['UserController', 'signup'],
         'signin' => ['UserController', 'signin'],
         'logout' => ['UserController', 'logOut'],
+        'create' => ['WikiController', 'createWiki'],
+        'show-wiki' => ['WikiController', 'showWiki'],
         'admin/dashboard' => ['DashboardController', 'index'],
         'admin/users' => ['DashboardController', 'showUsers'],
         'admin/wikis' => ['DashboardController', 'showWikis'],
+        'admin/categories' => ['DashboardController', 'showCategories'],
     ],
     
     'POST' => [
         'signup' => ['UserController', 'signup'],
         'signin' => ['UserController', 'signin'],
+        'create' => ['WikiController', 'createWiki'],
+        'admin/categories' => ['DashboardController', 'showCategories'],
         // 'dashboard' => ['DashboardController', 'index'],
     ]
 

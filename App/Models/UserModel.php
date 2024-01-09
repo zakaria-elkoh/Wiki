@@ -4,7 +4,7 @@
     use PDO;
     use App\Config\DbConfig;
 
-class User 
+class UserModel
 {
 
     private $conn;
