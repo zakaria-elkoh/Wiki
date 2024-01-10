@@ -32,13 +32,15 @@
                 <div class="sticky top-20 pt-7 ps-6">
                     <h3 class="text-2xl font-bold mb-6 dark:text-white">Discover more of what matters to you</h3>
                     <?php foreach($categories as $category) : ?>
-                        <a href="#" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><?= $category['name'] ?></a>
+                        <button type="button" class="category text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><?= $category['name'] ?></button>
                     <?php endforeach; ?>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <script src="public/js/app.js"></script>
 
 </body>
 </html>

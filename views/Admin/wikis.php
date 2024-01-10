@@ -15,7 +15,7 @@
         <section class="bg-[#222] py-16">
             <div class="max-w-screen-xl mx-auto px-6 flex">
 
-                <div class="wikis-wrapper basis-2/3 flex flex-col gap-5 pt-7">
+                <!-- <div class="wikis-wrapper basis-2/3 flex flex-col gap-5 pt-7">
                 
                     <a href="#" class="w-full p-5 bg-[#2d2d2d] hover:bg-[#2a2a2a] flex items-center border border-gray-700 rounded-lg shadow">
                         <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="public/assets/wiki.png" alt="img">
@@ -42,16 +42,71 @@
                             </div>
                         </a>
                     <?php endforeach; ?>
-                </div>
-
-                <!-- <div class="categories-wrapper px-6 basis-1/3">
-                    <div class="sticky top-20 pt-7 ps-6">
-                        <h3 class="text-2xl font-bold mb-6 dark:text-white">Discover more of what matters to you</h3>
-                        <?php foreach($categories as $category) : ?>
-                            <a href="#" type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><?= $category['name'] ?></a>
-                        <?php endforeach; ?>
-                    </div>
                 </div> -->
+
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                First Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Last Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                User Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Role
+                            </th>
+                            <th scope="col" class="py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach($wikis as $wiki) : ?>
+                            <tr class="odd:bg-white text-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                    <?= $wiki['id'] ?>
+                                </th>
+                                <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                    <?= $wiki['title'] ?>
+                                </th>
+                                <td class="px-6 py-4">
+                                    <?= $wiki['description'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?= $wiki['content'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?= $wiki['read_time'] ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                        <?= $wiki['categorie_id']; ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                        <?= $wiki['created_at']; ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                        <?= $wiki['user_id']; ?>
+                                </td>
+                                <td class="py-4">
+                                    <a href="?id=<?= $wiki['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
 
             </div>
         </section>

@@ -23,11 +23,12 @@
             return $result;
         }
 
-        public function findAllWikis() {
+        public function findAllWikis($search_value = '') {
 
-            $sql = "SELECT * FROM `wiki`";
+            $sql = "SELECT * FROM `wiki` WHERE title LIKE ?";
             $stmt = $this->conn->prepare($sql);
-            $success = $stmt->execute([]);
+            $search_value = '%' . $search_value . '%';
+            $success = $stmt->execute([$search_value]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
             return $result;

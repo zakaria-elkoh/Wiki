@@ -15,6 +15,7 @@ $router->setRoutes([
         'logout' => ['UserController', 'logOut'],
         'create' => ['WikiController', 'createWiki'],
         'show-wiki' => ['WikiController', 'showWiki'],
+        'search' => ['WikiController', 'search'],
         'admin/dashboard' => ['DashboardController', 'index'],
         'admin/users' => ['DashboardController', 'showUsers'],
         'admin/wikis' => ['DashboardController', 'showWikis'],

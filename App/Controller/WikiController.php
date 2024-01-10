@@ -57,4 +57,20 @@
             require_once '../../views/User/wiki.php';
         }
 
+        public function search() {
+
+            if (isset($_GET['search-value'])) {
+                $search_value = $_GET['search-value'];
+                // bring all wikis
+                $wikiModel = new WikiModel();
+                $wikis = $wikiModel->findAllWikis($search_value);
+
+                if ($wikis) {
+                    echo json_encode($wikis);
+                } else {
+                    echo json_encode(array());
+                }
+            }
+        }
+
     }

@@ -40,7 +40,7 @@
                             <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <?= $tag['id'] ?>
                             </th>
-                            <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                            <th contenteditable class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <?= $tag['name'] ?>
                             </th>
                             <td class="py-4">

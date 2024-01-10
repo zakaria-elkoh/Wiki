@@ -17,4 +17,5 @@
             require_once  '../../Includes/nav.php';
             require_once  '../../views/index.php';
         }
+
     }
