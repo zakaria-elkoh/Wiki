@@ -2,6 +2,7 @@
 
     namespace App\Controller;
     use App\Models\WikiModel;
+    use App\Models\CategoryModel;
 
     class WikiController
     {
@@ -23,16 +24,13 @@
                 $time_to_read = $_POST['time_to_read'];
                 $category_id = $_POST['category_id'];
 
-                
                 $wikiModel = new WikiModel();
                 $result = $wikiModel->createWiki($title, $description, $content, $time_to_read, $category_id);
-                
-                // echo "<pre>";
-                // var_dump($result);
-                // echo "</pre>";
-                // die();
 
             }
+
+            $categoryModel = new CategoryModel();
+            $categories = $categoryModel->findAllCategories();
 
             require_once '../../Includes/head.php';
             require_once '../../Includes/nav.php';             

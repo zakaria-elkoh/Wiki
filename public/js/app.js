@@ -45,8 +45,8 @@ searchBtn.addEventListener("click", () => {
 
 window.onscroll = () => {
     if(window.pageYOffset > 580) {
-        searchWrapper.style.display = "block";
+        searchWrapper.style.visibility = "visible";
     } else {
-        searchWrapper.style.display = "none";
+        searchWrapper.style.visibility = "hidden";
     }
 }

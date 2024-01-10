@@ -52,19 +52,22 @@
                                 Id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                First Name
+                                Title
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Last Name
+                                description
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                User Name
+                                read time (min)
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Email
+                                category
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                Role
+                            <th scope="col" class="px-3 py-3">
+                                created_at
+                            </th>
+                            <th scope="col" class="py-3">
+                                created_at
                             </th>
                             <th scope="col" class="py-3">
                                 Action
@@ -84,9 +87,9 @@
                                 <td class="px-6 py-4">
                                     <?= $wiki['description'] ?>
                                 </td>
-                                <td class="px-6 py-4">
+                                <!-- <td class="px-6 py-4">
                                     <?= $wiki['content'] ?>
-                                </td>
+                                </td> -->
                                 <td class="px-6 py-4">
                                     <?= $wiki['read_time'] ?>
                                 </td>

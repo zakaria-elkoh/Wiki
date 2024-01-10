@@ -30,12 +30,12 @@
         public function showUsers() {
 
             $userModel = new UserModel();
-                        
+            
             if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
                 $user_target_id = $_GET['id'];
                 $success = $userModel->deleteCategory($user_target_id);
             }
-
+            
             $users = $userModel->findAllUsers();
             
             require_once '../../Includes/head.php';
