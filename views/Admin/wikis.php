@@ -13,7 +13,7 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 
         <section class="bg-[#222] py-16">
-            <div class="max-w-screen-xl mx-auto px-6 flex">
+            <div class="max-w-screen-xl mx-auto flex">
 
                 <!-- <div class="wikis-wrapper basis-2/3 flex flex-col gap-5 pt-7">
                 
@@ -67,7 +67,7 @@
                                 created_at
                             </th>
                             <th scope="col" class="py-3">
-                                created_at
+                                User
                             </th>
                             <th scope="col" class="py-3">
                                 Action
@@ -103,7 +103,11 @@
                                         <?= $wiki['user_id']; ?>
                                 </td>
                                 <td class="py-4">
-                                    <a href="?id=<?= $wiki['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                    <!-- <a href="?id=<?= $wiki['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a> -->
+                                    <select id=<?= $wiki['id'] ?>  class="statu block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                        <option value="Show" selected>Show</option>
+                                        <option value="Archive">Archive</option>
+                                    </select>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -119,6 +123,43 @@
         </div>
 
     </div>
+
+    <script>
+        const statusSelect = document.querySelectorAll('.statu');
+
+        statusSelect.forEach(statu => {
+            statu.addEventListener('change', function(e) {
+                const wiki_id = e.target.id;
+                const wiki_statu = e.target.value;
+                console.log(wiki_id);
+                console.log(wiki_statu);
+
+                const data = { 
+                    id: wiki_id, 
+                    wiki_statu: wiki_statu 
+                };
+                fetch(`http://localhost/wiki/update-statu`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
 
     </body>
     </html>

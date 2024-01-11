@@ -3,6 +3,7 @@
     namespace App\Controller;
     use App\Models\WikiModel;
     use App\Models\CategoryModel;
+    use App\Models\TagModel;
 
     class WikiController
     {
@@ -23,14 +24,19 @@
                 $content = $_POST['content'];
                 $time_to_read = $_POST['time_to_read'];
                 $category_id = $_POST['category_id'];
+                $new_wiki_tags_id = $_POST['tags'];
 
                 $wikiModel = new WikiModel();
-                $result = $wikiModel->createWiki($title, $description, $content, $time_to_read, $category_id);
+                $success = $wikiModel->createWiki($title, $description, $content, $time_to_read, $category_id, $new_wiki_tags_id);
 
             }
 
+            // bring all categories
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->findAllCategories();
+            // bring all tags
+            $tagModel = new TagModel();
+            $tags = $tagModel->findAllTags();
 
             require_once '../../Includes/head.php';
             require_once '../../Includes/nav.php';             
@@ -68,6 +74,24 @@
                 } else {
                     echo json_encode(array());
                 }
+            }
+        }
+
+        public function updateStatu() {
+
+            if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    
+                $rawData = file_get_contents("php://input");
+                
+                $data = json_decode($rawData, true);
+                
+                $target_wiki_id = $data['id'];
+                $new_statu = $data['wiki_statu'];
+
+                $wikiModel = new WikiModel();
+                $success = $wikiModel->updateStatu($target_wiki_id, $new_statu);
+
+                // echo json_encode(['update' => 'done']);
             }
         }
 

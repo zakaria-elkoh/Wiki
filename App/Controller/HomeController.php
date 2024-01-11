@@ -12,6 +12,9 @@
             // bring all cotegories
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->findAllCategories();
+            // bring all tags for wikis
+            // $categoryModel = new CategoryModel();
+            // $tags = $categoryModel->findAllCategories();
             
             require_once  '../../Includes/head.php';
             require_once  '../../Includes/nav.php';

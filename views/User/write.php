@@ -17,13 +17,26 @@
             <label for="time" class="block mb-2 text-sm mt-5 font-medium text-gray-900 dark:text-white">Time to read:</label>
             <input type="number" name="time_to_read" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Time to read" required>
         </div>
-        <label for="categories" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Category:</label>
+        <div>
+            <!-- categories selection -->
+            <label for="categories" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Category:</label>
             <select id="categories" name="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Choose a category</option>
-            <?php foreach($categories as $category) : ?>
-                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
-            <?php endforeach; ?>
-        </select>
+                <option selected>Choose a category</option>
+                <?php foreach($categories as $category) : ?>
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div>
+            <!-- tags selection -->
+            <label for="tags" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Tags:</label>
+            <input type="text" placeholder="Search in tags">
+            <select multiple name="tags[]" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <?php foreach($tags as $tag) : ?>
+                    <option value="<?= $tag['id'] ?>"><?= $tag['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         <button type="submit" name="create_wiki" class="text-white block mx-auto bg-blue-700 focus:outline-none hover:bg-blue-800 focus:ring-4 font-medium rounded-full text-sm py-2.5 px-10 mt-5">Create Wiki</button>
     </form>
 

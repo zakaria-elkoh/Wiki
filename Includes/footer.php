@@ -1,6 +1,6 @@
 
 
-<footer class="bg-[#222] border-t border-gray-600 py-14">
+<footer class="bg-[#111] border-t border-gray-600 py-14">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">

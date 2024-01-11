@@ -43,7 +43,7 @@
                             <th id="tag-<?= $tag['id'] ?>"  class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                 <?= $tag['name'] ?>
                             </th>
-                            <td class="py-4">
+                            <td class="py-4 flex gap-4">
                                 <a href="?id=<?= $tag['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                 <button id="<?= $tag['id'] ?>"  class="editBtn font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                             </td>

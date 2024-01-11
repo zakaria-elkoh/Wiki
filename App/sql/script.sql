@@ -32,6 +32,8 @@ ADD CONSTRAINT fk_wiki_user
 FOREIGN KEY (user_id) REFERENCES user(id);
 ALTER TABLE wiki
 ADD COLUMN created_at DATE;
+ALTER TABLE wiki
+ADD COLUMN statu VARCHAR(100);
 CREATE TABLE Categorie (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100)
@@ -44,5 +46,5 @@ CREATE TABLE Wiki_Tag (
     Wiki_id INT,
     FOREIGN KEY (Wiki_id) REFERENCES Wiki(id),
     Tag_id INT,
-    FOREIGN KEY (Tag_id) REFERENCES categorie(id)
+    FOREIGN KEY (Tag_id) REFERENCES tag(id)
 );

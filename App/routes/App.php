@@ -31,6 +31,7 @@ $router->setRoutes([
         'admin/tags' => ['DashboardController', 'showTags'],
         'tag/update' => ['TagController', 'updateTag'],
         'category/update' => ['CategoryController', 'updateCategory'],
+        'wiki/update-statu' => ['WikiController', 'updateStatu'],
     ]
 
 ]);
