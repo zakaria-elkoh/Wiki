@@ -9,7 +9,7 @@
         </div>
     </header>
 
-    <section class="bg-[#222] py-16">
+    <section class="bg-[#222] py-28">
         <div class="max-w-screen-xl mx-auto px-6 flex">
 
             <div class="wikis-wrapper basis-2/3 flex flex-col gap-5 pt-7">

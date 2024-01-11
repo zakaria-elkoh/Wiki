@@ -28,6 +28,14 @@
 
             return $success;
         }
+        
+        public function updateCategory($new_value, $tag_target_id) {
+            $sql = "UPDATE `categorie` SET `name` = ? WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $success = $stmt->execute([$new_value, $tag_target_id]);
+
+            return $success;
+        }
 
         public function deleteCategory($category_target_id) {
             $sql = "DELETE FROM `categorie` WHERE id = $category_target_id";
@@ -36,4 +44,5 @@
 
             return $success;
         }
+        
     }

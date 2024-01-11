@@ -29,6 +29,14 @@
             return $success;
         }
 
+        public function updateTag($new_value, $tag_target_id) {
+            $sql = "UPDATE `tag` SET `name` = ? WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $success = $stmt->execute([$new_value, $tag_target_id]);
+
+            return $success;
+        }
+
         public function deleteTag($tag_target_id) {
             $sql = "DELETE FROM `tag` WHERE id = $tag_target_id";
             $stmt = $this->conn->prepare($sql);

@@ -40,11 +40,12 @@
                                 <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                     <?= $category['id'] ?>
                                 </th>
-                                <th class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                <th id="category-<?= $category['id'] ?>"  class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                                     <?= $category['name'] ?>
                                 </th>
                                 <td class="py-4">
                                     <a href="?id=<?= $category['id'] ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                    <button id="<?= $category['id'] ?>"  class="editBtn font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -57,3 +58,50 @@
         </div>
 
     </div>
+
+    
+<script>
+    const btns = document.querySelectorAll('.editBtn');
+    let currentCategoryEl;
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+
+            currentCategoryEl = document.getElementById(`category-${e.target.id}`);
+            currentCategoryEl.contentEditable = true;
+            currentCategoryEl.focus();
+
+            currentCategoryEl.addEventListener('blur', function() {
+                currentCategoryEl.contentEditable = false;
+                const newValue = currentCategoryEl.innerText;
+                const data = { 
+                    id: e.target.id, 
+                    new_value: newValue 
+                };
+                const jsonData = JSON.stringify(data);
+                fetch(`http://localhost/wiki/category/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: jsonData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    });
+
+
+
+</script>

@@ -29,6 +29,8 @@ $router->setRoutes([
         'create' => ['WikiController', 'createWiki'],
         'admin/categories' => ['DashboardController', 'showCategories'],
         'admin/tags' => ['DashboardController', 'showTags'],
+        'tag/update' => ['TagController', 'updateTag'],
+        'category/update' => ['CategoryController', 'updateCategory'],
     ]
 
 ]);
