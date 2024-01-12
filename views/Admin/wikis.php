@@ -138,7 +138,7 @@
                     id: wiki_id, 
                     wiki_statu: wiki_statu 
                 };
-                fetch(`http://localhost/wiki/update-statu`, {
+                fetch(`http://localhost/wiki/update/statu`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -3,19 +3,22 @@
         <h2 class="text-3xl font-extrabold mb-5 text-center dark:text-white">Greate a Wiki:</h2>
         <div>
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title:</label>
-            <input type="text" name="title" id="title" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title" required>
+            <input type="text" name="title" value="<?= (isset($wiki['id']))? $wiki['title'] : ''; ?>" id="title" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title" required>
+            <input type="hidden" value="<?= $wiki['id']; ?>" name="wiki_id">
         </div>
         <div>
             <label for="description" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Description:</label>
-            <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description your wiki" required>
+            <input type="text" name="description" value="<?= (isset($wiki['id']))? $wiki['description'] : ''; ?>" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description your wiki" required>
         </div>
         <div>
             <label for="content" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Content:</label>
-            <textarea id="content" name="content" rows="4" class="block p-2.5 w-full h-48 text-sm text-gray-900 bg-['#333'] rounded-lg border border-gray-300" placeholder="Write your thoughts here..."></textarea>
+            <textarea id="content" name="content" rows="4" class="block p-2.5 w-full h-48 text-sm text-gray-900 bg-['#333'] rounded-lg border border-gray-300" placeholder="Write your thoughts here...">
+                <?= (isset($wiki['id']))? $wiki['content'] : ''; ?>
+            </textarea>
         </div>
         <div>
             <label for="time" class="block mb-2 text-sm mt-5 font-medium text-gray-900 dark:text-white">Time to read:</label>
-            <input type="number" name="time_to_read" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Time to read" required>
+            <input type="number" name="time_to_read" value="<?= (isset($wiki['id']))? $wiki['read_time'] : ''; ?>" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Time to read" required>
         </div>
         <div>
             <!-- categories selection -->
@@ -30,14 +33,14 @@
         <div>
             <!-- tags selection -->
             <label for="tags" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Tags:</label>
-            <input type="text" placeholder="Search in tags">
+            <!-- <input type="text" placeholder="Search in tags"> -->
             <select multiple name="tags[]" id="tags" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <?php foreach($tags as $tag) : ?>
                     <option value="<?= $tag['id'] ?>"><?= $tag['name'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
-        <button type="submit" name="create_wiki" class="text-white block mx-auto bg-blue-700 focus:outline-none hover:bg-blue-800 focus:ring-4 font-medium rounded-full text-sm py-2.5 px-10 mt-5">Create Wiki</button>
+        <button type="submit" name="<?= (isset($wiki['id']))? 'update' : 'create'; ?>_wiki" class="text-white block mx-auto bg-blue-700 focus:outline-none hover:bg-blue-800 focus:ring-4 font-medium rounded-full text-sm py-2.5 px-10 mt-5"><?= (isset($wiki['id']))? 'Update' : 'Create'; ?> Wiki</button>
     </form>
 
     <script>

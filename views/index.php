@@ -23,6 +23,16 @@
                                 <span><?= $wiki['read_time']; ?> min read</span>
                                 <span><?= $wiki['created_at']; ?></span>
                             </div>
+                            <div class="mt-5">
+                                <?php 
+                                    $tagsArray = explode(',', $wiki['tags']);
+                                ?>
+                                <?php foreach ($tagsArray as $tag) : ?>
+                                        <button type="button" class="py-1.5 px-3  text-sm font-medium text-white bg-[#333] rounded-full">
+                                            #<?= $tag ?>
+                                        </button>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </a>
                 <?php endforeach; ?>

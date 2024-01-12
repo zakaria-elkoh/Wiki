@@ -15,6 +15,11 @@
             // bring all tags for wikis
             // $categoryModel = new CategoryModel();
             // $tags = $categoryModel->findAllCategories();
+
+            // echo '<pre>';
+            // var_dump($wikis);
+            // echo '</pre>';
+            // die;
             
             require_once  '../../Includes/head.php';
             require_once  '../../Includes/nav.php';

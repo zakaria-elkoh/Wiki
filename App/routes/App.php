@@ -16,6 +16,7 @@ $router->setRoutes([
         'create' => ['WikiController', 'createWiki'],
         'show-wiki' => ['WikiController', 'showWiki'],
         'search' => ['WikiController', 'search'],
+        'profile' => ['ProfileController', 'index'],
         'admin/dashboard' => ['DashboardController', 'index'],
         'admin/users' => ['DashboardController', 'showUsers'],
         'admin/wikis' => ['DashboardController', 'showWikis'],
@@ -31,7 +32,7 @@ $router->setRoutes([
         'admin/tags' => ['DashboardController', 'showTags'],
         'tag/update' => ['TagController', 'updateTag'],
         'category/update' => ['CategoryController', 'updateCategory'],
-        'wiki/update-statu' => ['WikiController', 'updateStatu'],
+        'update/statu' => ['WikiController', 'updateStatu'],
     ]
 
 ]);

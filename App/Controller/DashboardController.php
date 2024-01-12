@@ -7,16 +7,9 @@
     use App\Models\TagModel;
 
     if($_SESSION['user_role_id'] !== 1) {
-        echo "<pre>";
-        echo "<div><h1 class='mb-4 text-7 xl font-extrabold leading-none tracking-tight text-red-900 md:text-5xl lg:text-6xl dark:text-white'>What you tring to do nigga?</h1></div>";
-        echo "</pre>";
+        require_once '../../views/User/403.php';
         die;
     }
-
-    // echo "<pre>";
-    // var_dump($_SERVER);
-    // echo "</pre>";
-    // die;
 
     class DashboardController 
     {

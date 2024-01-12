@@ -44,6 +44,7 @@
                     <?php else : ?>
                         <li>
                             <a href="logout" class="text-white bg-red-700 focus:outline-none hover:bg-red-800 focus:ring-4 font-medium rounded-full text-sm px-4 py-2.5 me-2 mb-2">Log Out</a>
+                            <a href="profile" class="text-white bg-gray-700 focus:outline-none hover:bg-gray-800 focus:ring-4 font-medium rounded-full text-sm px-4 py-2.5 me-2 mb-2">P</a>
                         </li>
                     <?php endif; ?>
                 </ul>
