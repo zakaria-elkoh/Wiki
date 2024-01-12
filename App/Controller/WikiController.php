@@ -92,7 +92,7 @@
             if (isset($_GET['search-value'])) {
                 $search_value = $_GET['search-value'];
                 // bring all wikis
-                $wikis = $wikiModel->findAllWikis($search_value);
+                $wikis = $wikiModel->searchWikis($search_value);
 
                 if ($wikis) {
                     echo json_encode($wikis);

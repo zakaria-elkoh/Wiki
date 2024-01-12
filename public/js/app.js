@@ -20,7 +20,7 @@ categories.forEach(el => {
             return response.json();
         })
         .then(wikis => {
-            console.log(wikis);
+            
             wikisWrapper.innerHTML = "";
             wikis.forEach(wiki => {
                 wikisWrapper.innerHTML += `

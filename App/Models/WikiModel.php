@@ -60,6 +60,25 @@
             return $result;
         }
 
+        public function searchWikis($search_value = '') {
+
+            $sql = "SELECT wiki.*, user_name, first_name, last_name, GROUP_CONCAT(tag.name) as tags 
+            FROM `wiki` 
+            LEFT JOIN categorie ON wiki.categorie_id = categorie.id 
+            LEFT JOIN user ON wiki.user_id = user.id 
+            LEFT JOIN wiki_tag ON wiki_tag.Wiki_id = wiki.id 
+            LEFT JOIN tag ON wiki_tag.Tag_id = tag.id  
+            WHERE title LIKE ? OR tag.name LIKE ?
+            GROUP BY wiki.id
+            ORDER BY id DESC";
+            $stmt = $this->conn->prepare($sql);
+            $search_value = '%' . $search_value . '%';
+            $success = $stmt->execute([$search_value, $search_value]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $result;
+        }
+
         public function findAllWikisByCate($search_value) {
 
             $sql = "SELECT wiki.*, categorie.name as category, user_name, first_name, last_name FROM `wiki` INNER JOIN categorie ON wiki.categorie_id = categorie.id INNER JOIN user ON wiki.user_id = user.id WHERE categorie.name LIKE ? ORDER BY id DESC";
@@ -114,7 +133,7 @@
         }
 
         public function updateStatu($target_wiki_id, $new_statu) {
-            $sql = "UPDATE `wiki` SET `statu` = ? WHERE id = ? ";
+            $sql = "UPDATE `wiki` SET `statu` = ? WHERE id = ?";
             $stmt = $this->conn->prepare($sql);
             $success = $stmt->execute([$new_statu, $target_wiki_id]);
     
