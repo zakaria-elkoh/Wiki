@@ -21,6 +21,7 @@
                 $wikis = $wikiModel->allByUserId($user_id);
     
                 require_once  '../../Includes/head.php';
+                require_once  '../../Includes/nav.php';
                 require_once '../../views/User/profile.php';
             }
 

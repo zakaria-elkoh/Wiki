@@ -8,18 +8,11 @@
         public function index() {
             // bring all wikis
             $wikiModel = new WikiModel();
-            $wikis = $wikiModel->findAllWikis();
+            $wikis = $wikiModel->searchWikis(); 
             // bring all cotegories
             $categoryModel = new CategoryModel();
             $categories = $categoryModel->findAllCategories();
-            // bring all tags for wikis
-            // $categoryModel = new CategoryModel();
-            // $tags = $categoryModel->findAllCategories();
 
-            // echo '<pre>';
-            // var_dump($wikis);
-            // echo '</pre>';
-            // die;
             
             require_once  '../../Includes/head.php';
             require_once  '../../Includes/nav.php';

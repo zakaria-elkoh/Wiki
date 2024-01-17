@@ -69,4 +69,14 @@ class UserModel
 
         return $success;
     }
+
+    public function totalUsers() {
+        $sql = "SELECT COUNT(*) as count FROM user";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total = $result['count'];
+
+        return $total;
+    }
 }

@@ -78,7 +78,8 @@ searchBtn.addEventListener("click", () => {
 
 // show and hide search bar
 window.onscroll = () => {
-    if(window.pageYOffset > 580) {
+    console.log(window.pageYOffset);
+    if(window.pageYOffset > 400) {
         searchWrapper.style.visibility = "visible";
     } else {
         searchWrapper.style.visibility = "hidden";

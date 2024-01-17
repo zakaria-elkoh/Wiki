@@ -11,6 +11,8 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                
+                <!-- table to show the details of the users  -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
 
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -76,5 +78,6 @@
     </div>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 </html>

@@ -11,35 +11,31 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
 
-            <div class="grid grid-cols-3 gap-5">
-
+            <div class="grid grid-cols-2 gap-5">
+                <!-- statistic of the wikis -->
                 <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
-                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">122</h1>
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight"><?= $total_wikis; ?></h1>
                     <span>Wikis</span>
                     <a href="wikis" class="block text-right mt-6 hover:underline">See All Wikies</a>
                 </div>
-
+                <!-- statistic of the users -->
                 <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
-                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">514</h1>
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight"><?= $total_users; ?></h1>
                     <span>User</span>
                     <a href="users" class="block text-right mt-6 hover:underline">See All Users</a>
                 </div>
 
-                <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
-                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">1821</h1>
-                    <span>Wiki</span>
-                    <a href="#" class="block text-right mt-6 hover:underline">See All ...</a>
-                </div>
             </div>
             <div class="grid grid-cols-2 mt-5 gap-5">
+                <!-- statistic of the tags -->
                 <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
-                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">1821</h1>
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight"><?= $total_tags; ?></h1>
                     <span>Tags</span>
                     <a href="#" class="block text-right mt-6 hover:underline">See All Tags</a>
                 </div>
-
+                <!-- statistic of the categories -->
                 <div class="bg-[#333] p-6 text-white rounded-2xl text-center">
-                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight">1821</h1>
+                    <h1 class="inline mb-4 text-5xl font-extrabold leading-none tracking-tight"><?= $total_categories; ?></h1>
                     <span>Categories</span>
                     <a href="#" class="block text-right mt-6 hover:underline">See All Categories</a>
                 </div>
@@ -49,5 +45,7 @@
 
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 </html>

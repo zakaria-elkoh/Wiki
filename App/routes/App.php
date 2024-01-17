@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -14,6 +15,7 @@ $router->setRoutes([
         'signin' => ['UserController', 'signin'],
         'logout' => ['UserController', 'logOut'],
         'create' => ['WikiController', 'createWiki'],
+        'delete' => ['WikiController', 'deleteWiki'],
         'show-wiki' => ['WikiController', 'showWiki'],
         'search' => ['WikiController', 'search'],
         'profile' => ['ProfileController', 'index'],
@@ -55,9 +57,11 @@ if (isset($_GET['url'])) {
                 $controller->index();
             }
         } else {
-            throw new Exception('Route not found.');
+            require_once '../../views/User/404.php';
+            die;
         }
     } catch (Exception $e) {
         echo 'Caught exception: ', $e->getMessage(), "\n";
     }
 }
+

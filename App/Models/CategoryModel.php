@@ -44,5 +44,15 @@
 
             return $success;
         }
+
+        public function totalCategories() {
+            $sql = "SELECT COUNT(*) as count FROM categorie";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $total = $result['count'];
+    
+            return $total;
+        }
         
     }

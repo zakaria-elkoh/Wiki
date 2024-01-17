@@ -25,9 +25,11 @@
                 $time_to_read = $_POST['time_to_read'];
                 $category_id = $_POST['category_id'];
                 $new_wiki_tags_id = $_POST['tags'];
+                $user_id = $_SESSION['user_id'];
+                $statu = 'show';
 
                 $wikiModel = new WikiModel();
-                $success = $wikiModel->createWiki($title, $description, $content, $time_to_read, $category_id, $new_wiki_tags_id);
+                $success = $wikiModel->createWiki($title, $description, $content, $time_to_read, $category_id, $new_wiki_tags_id, $user_id, $statu);
 
             }
 
@@ -85,6 +87,19 @@
             require_once '../../views/User/wiki.php';
         }
 
+        public function deleteWiki() {
+
+            if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["id"])) {
+
+                $target_wiki_id = base64_decode($_GET['id']);
+                $wikiModel = new WikiModel();
+                $success = $wikiModel->deleteWiki($target_wiki_id);
+    
+                header('location: profile');
+            }
+            
+        }
+
         public function search() {
 
             $wikiModel = new WikiModel();
@@ -115,7 +130,7 @@
         }
 
         public function updateStatu() {
-
+            
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     
                 $rawData = file_get_contents("php://input");
@@ -125,9 +140,11 @@
                 $target_wiki_id = $data['id'];
                 $new_statu = $data['wiki_statu'];
 
+                $wikiModel = new WikiModel();
                 $success = $wikiModel->updateStatu($target_wiki_id, $new_statu);
 
-                echo json_encode(['update' => 'done']);
+                echo json_encode($success);
+
             }
         }
 

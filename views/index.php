@@ -12,9 +12,9 @@
     <section class="bg-[#222] py-28">
         <div class="max-w-screen-xl mx-auto px-6 flex">
 
-            <div class="wikis-wrapper basis-2/3 flex flex-col gap-5 pt-7">
+            <div class="wikis-wrapper w-full md:basis-2/3 flex flex-col gap-5 pt-7">
                 <?php foreach($wikis as $wiki) : ?>
-                    <a href="show-wiki?wiki_id=<?= $wiki['id']; ?>" class="w-full p-5 bg-['#555'] hover:bg-[#2a2a2a] flex items-center border border-gray-700 rounded-lg shadow">
+                    <a href="show-wiki?wiki_id=<?= $wiki['id']; ?>" class="w-full p-5 bg-['#555'] hover:bg-[#2a2a2a] flex items-center flex-col md:flex-row border border-gray-700 rounded-lg shadow">
                         <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="public/assets/wiki.png" alt="img">
                         <div class="w-full flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?= $wiki['title']; ?></h5>
@@ -28,9 +28,9 @@
                                     $tagsArray = explode(',', $wiki['tags']);
                                 ?>
                                 <?php foreach ($tagsArray as $tag) : ?>
-                                        <button type="button" class="py-1.5 px-3  text-sm font-medium text-white bg-[#333] rounded-full">
-                                            #<?= $tag ?>
-                                        </button>
+                                    <button type="button" class="py-1.5 px-3 mt-1  text-sm font-medium text-white bg-[#333] rounded-full">
+                                        #<?= $tag ?>
+                                    </button>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -38,9 +38,9 @@
                 <?php endforeach; ?>
             </div>
 
-            <div class="categories-wrapper px-6 basis-1/3">
-                <div class="sticky top-24 pt-7 ps-6">
-                    <h3 class="text-2xl font-bold mb-6 dark:text-white">Discover more of what matters to you</h3>
+            <div class="categories-wrapper px-0 md:px-6 md:basis-1/3">
+                <div class="fixed text-center md:sticky bottom-0 md:top-24 pt-7 ps-6 w-full left-0 bg-[#444] md:bg-transparent md:text-left">
+                    <h3 class="text-2xl hidden md:block font-bold  mb-6 dark:text-white">Discover more of what matters to you</h3>
                     <?php foreach($categories as $category) : ?>
                         <button type="button" class="category text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"><?= $category['name'] ?></button>
                     <?php endforeach; ?>
@@ -50,6 +50,8 @@
         </div>
     </section>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="public/js/app.js"></script>
 
 </body>

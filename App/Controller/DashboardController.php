@@ -15,6 +15,18 @@
     {
         
         public function index() {
+            // get total wikis
+            $wikiModel = new WikiModel();
+            $total_wikis = $wikiModel->totalWikis();
+            // get total users
+            $userModel = new UserModel();
+            $total_users = $userModel->totalUsers();
+            // get total tags
+            $tagModel = new TagModel();
+            $total_tags = $tagModel->totalTags();
+            // get total categories
+            $categoryModel = new CategoryModel();
+            $total_categories = $categoryModel->totalCategories();
             
             require_once '../../Includes/head.php';
             require_once '../../views/Admin/dashboard.php';

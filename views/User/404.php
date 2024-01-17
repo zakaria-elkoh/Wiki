@@ -272,7 +272,7 @@
         <span class="bg-403">404</span>
         <div class="text">
             <span class="hero-text"></span>
-            <span class="msg">Page Not Found <span>you</span>.</span>
+            <span class="msg">Page Not Found.</span>
             <span class="support">
             <span>unexpected?</span>
             <a href="#">contact support</a>
